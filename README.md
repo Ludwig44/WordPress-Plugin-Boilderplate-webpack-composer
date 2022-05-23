@@ -23,3 +23,46 @@ bash install.bash
 4. Don't forget to activate your new plugin in your WordPress.
 5. Finish
 
+## Translations
+
+1. For use translation open your pot file in `/languages/plugin-name.pot` with Poedit.
+2. Click on translation and properties
+3. Add the name of your project and others properties
+4. Save
+5. Your file is ready for translation
+
+## Composer usage
+
+Execute all command for composer in `/includes`. For more documentation for composer [follow this link](https://getcomposer.org/).
+
+The vendor is already installed when your plugin is generated unless composer was not installed on your machine, in this case go to `/includes` and run `composer install`.
+
+## Webpack usage
+
+Execute all command for webpack in `/public/src`. For more documentation for webpack [follow this link](https://webpack.js.org/).
+
+### Install webpack
+
+Just launch `npm install`
+
+### Add JS files
+
+1. In `/public/src/js` add a file for exemple `exemple.js`, you can import other files and component. For more information show [this documentation](https://webpack.js.org/api/module-methods/#import).
+2. Add the new file in `/public/src/webpack.config.js` in `entry` const like this:
+```
+'exemple' : JS_DIR + '/exemple.js'
+```
+2. Launch compilation.
+3. After lanch compilation, your file output in `/public/js`.
+
+### Add SCSS files
+
+1. In `/public/src/scss` add a file for exemple `exemple.scss`.
+2. Add in your js file exemple : `/public/src/js/exemple.js` an import for scss file.
+3. Launch compilation.
+4. After lanch compilation, your file output in `/public/css`.
+
+### Compilation
+
+* If you are in dev environement you can use this command `npm run dev` for use hot reload and non minified code for js and css.
+* If you are in prod environement you can use this command `npm run prod` for minified css and js code.
