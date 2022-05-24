@@ -12,6 +12,11 @@ echo "q: Exit";
 
 read -p "Your choice: " choice;
 
+# if output file doesnt exist, create it
+if [ ! -d "output" ]; then
+    mkdir output;
+fi
+
 if [ $choice = "1" ]
 then
     echo "----------------------------------------------------";

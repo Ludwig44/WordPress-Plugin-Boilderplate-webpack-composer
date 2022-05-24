@@ -1,5 +1,5 @@
-# ignore all output plugins
-output/*
+# ignore all subfolder of output dir
+output/*/
 
 # ignore node dependency directories
 node_modules/
