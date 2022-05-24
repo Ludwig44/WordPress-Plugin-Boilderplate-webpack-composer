@@ -28,6 +28,15 @@ bash install.bash
 5. Don't forget to activate your new plugin in your WordPress.
 6. Finish
 
+## Constantes
+
+All constantes defined by the plugin (the name `PLUGIN_NAME` is replace by your plugin name):
+
+1. `PLUGIN_NAME_VERSION` : The version of your plugin.
+2. `PLUGIN_NAME_TEXT_DOMAIN` : The text domain of your plugin for internationnalisation.
+3. `PLUGIN_NAME_PLUGIN_PATH` : The plugin path for include files.
+4. `PLUGIN_NAME_PLUGIN_URL` : The plugin url to include script or style for example.
+
 ## Translations
 
 1. For use translation open your pot file in `/languages/plugin-name.pot` with Poedit.

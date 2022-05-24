@@ -32,6 +32,21 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'PLUGIN_NAME_VERSION', '1.0.0' );
 
 /**
+ * Plugin Name text domain for internationalization.
+ */
+define( 'PLUGIN_NAME_TEXT_DOMAIN', 'plugin-name' );
+
+/**
+ * Plugin Name Path for plugin includes.
+ */
+define( 'PLUGIN_NAME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+
+/**
+ * Plugin Name URL for plugin sources (css, js, images etc...).
+ */
+define( 'PLUGIN_NAME_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
  */
