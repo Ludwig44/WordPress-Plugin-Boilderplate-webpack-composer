@@ -111,6 +111,18 @@ class Plugin_Name {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
 
 		/**
+		 * This file is loaded only on local environement for test or debug.
+		 */
+		if( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1' ){
+			require_once plugin_dir_path( dirname( __FILE__ ) ). 'includes/dev-toolkits.php';
+		}
+		
+		/**
+		 * The global functions for this plugin
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/global-functions.php';
+
+		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
