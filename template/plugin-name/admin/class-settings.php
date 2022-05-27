@@ -42,5 +42,32 @@ class Plugin_Name_Settings {
 		$this->version = $version;
 
 	}
-
+	
+	/**
+	 * add_settings_menu
+	 *
+	 * @since    1.0.0
+	 * @return void
+	 */
+	public function add_settings_menu() {
+		add_menu_page( 
+			__('WordPress Plugin Boilerplate', PLUGIN_NAME_TEXT_DOMAIN),
+			__('WordPress Plugin Boilerplate', PLUGIN_NAME_TEXT_DOMAIN),
+			'manage_options',
+			'plugin-name-settings',
+			array($this, 'render_settings_page'),
+			'dashicons-admin-generic',
+			3
+		);
+	}
+	
+	/**
+	 * render_settings_page
+	 *
+	 * @since    1.0.0
+	 * @return void
+	 */
+	public function render_settings_page(){
+		include_once( PLUGIN_NAME_PLUGIN_PATH . 'admin/templates/page-settings.php' );
+	}
 }

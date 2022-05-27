@@ -1,8 +1,6 @@
 <?php
 /**
- * Provide a admin area view for the plugin
- *
- * This file is used to markup the admin-facing aspects of the plugin.
+ * Provide a admin area view for the plugin settings.
  *
  * @link       http://example.com
  * @since      1.0.0
@@ -11,5 +9,4 @@
  * @subpackage Plugin_Name/admin/templates
  */
 ?>
-
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<h1><?php echo __('WordPress Plugin Boilerplate settings', PLUGIN_NAME_TEXT_DOMAIN); ?></h1>
