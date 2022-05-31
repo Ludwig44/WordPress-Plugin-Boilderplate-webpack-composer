@@ -14,6 +14,8 @@ This project is ideally aimed at those who are comfortable with the DevinVision 
 
 ## Installation & generation of plugin
 
+![Image](https://media1.giphy.com/media/k1iWAv6dAx037tRhTh/giphy.gif?cid=790b7611d5abca383e80a49957e882e84037be80f184a5dd&rid=giphy.gif&ct=g)
+
 1. Clone project
 ```
 git clone git@github.com:Ludwig44/WordPress-Plugin-Boilderplate-webpack-composer.git;
