@@ -37,6 +37,22 @@ All constantes defined by the plugin (the name `PLUGIN_NAME` is replace by your 
 3. `PLUGIN_NAME_PLUGIN_PATH` : The plugin path for include files.
 4. `PLUGIN_NAME_PLUGIN_URL` : The plugin url to include script or style for example.
 
+## Cron job
+
+The plugin template embed a cron job class, for easily add cron job. For add one just follow this steps:
+
+1. Go to `/admin/class-cron-job`, in `plugin_name_crons_list()` function
+2. Add an element in the array with the following syntax (you have an exemple commmented in the file):
+```
+'exemple' => array(
+        "file_path" => "admin/cron/exemple.php", // Replace by your cron job file path
+        'interval' 	=> HOUR_IN_SECONDS * 24, // Replace by your interval
+        'display' 	=> __( 'Exemple of description', PLUGIN_NAME_TEXT_DOMAIN ) // Replace by your description
+    )
+``` 
+3. Add file in the cron folder at `/admin/cron/` or in other path.
+4. You can test cron with [WP Control](https://wordpress.org/plugins/wp-crontrol/)
+
 ## Translations
 
 1. For use translation open your pot file in `/languages/plugin-name.pot` with Poedit.

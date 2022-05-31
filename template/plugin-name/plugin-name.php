@@ -50,7 +50,7 @@ define( 'PLUGIN_NAME_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
  */
-function activate_plugin_name() {
+function activate_plugin_name_to_replace() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
 	Plugin_Name_Activator::activate();
 }
@@ -59,13 +59,13 @@ function activate_plugin_name() {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
-function deactivate_plugin_name() {
+function deactivate_plugin_name_to_replace() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
 	Plugin_Name_Deactivator::deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_plugin_name' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name' );
+register_activation_hook( __FILE__, 'activate_plugin_name_to_replace' );
+register_deactivation_hook( __FILE__, 'deactivate_plugin_name_to_replace' );
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -82,10 +82,10 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name.php';
  *
  * @since    1.0.0
  */
-function run_plugin_name() {
+function run_plugin_name_to_replace() {
 
 	$plugin = new Plugin_Name();
 	$plugin->run();
 
 }
-run_plugin_name();
+run_plugin_name_to_replace();

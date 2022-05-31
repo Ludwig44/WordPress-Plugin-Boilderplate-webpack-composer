@@ -61,7 +61,7 @@ then
     find ./output/$plugin_name_with_hyphen -type f $files_parameters -print0 | xargs -0 sed -i '' -e "s/Plugin_Name/$plugin_name/g";
 
     #change plugin_name to example_me
-    find ./output/$plugin_name_with_hyphen -type f $files_parameters -print0 | xargs -0 sed -i '' -e "s/plugin_name/$plugin_name_lowercase/g";
+    find ./output/$plugin_name_with_hyphen -type f $files_parameters -print0 | xargs -0 sed -i '' -e "s/plugin_name_to_replace/$plugin_name_lowercase/g";
 
     #change PLUGIN_NAME_ to EXAMPLE_ME_
     find ./output/$plugin_name_with_hyphen -type f $files_parameters -print0 | xargs -0 sed -i '' -e "s/PLUGIN_NAME_/$plugin_name_uppercase\_/g";

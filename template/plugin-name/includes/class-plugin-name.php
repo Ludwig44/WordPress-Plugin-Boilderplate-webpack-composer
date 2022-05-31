@@ -132,6 +132,11 @@ class Plugin_Name {
 		 * The class responsible of settings.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-settings.php';
+		
+		/**
+		 * The class responsible of cron job.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-cron-job.php';
 
 		/**
 		 * The class responsible of shortcodes.
@@ -168,8 +173,10 @@ class Plugin_Name {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_name_settings = new Plugin_Name_Settings( $this->get_plugin_name(), $this->get_version() );
-		$this->loader->add_action( 'admin_menu', $plugin_name_settings, 'add_settings_menu' );
+		$plugin_name_to_replace_settings = new Plugin_Name_Settings( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_action( 'admin_menu', $plugin_name_to_replace_settings, 'add_settings_menu' );
+
+		$plugin_name_to_replace_cron_job = new Plugin_Name_Cron_Job( $this->get_plugin_name(), $this->get_version() );
 
 	}
 
@@ -182,8 +189,8 @@ class Plugin_Name {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_name_shortcodes = new Plugin_Name_Shortcodes( $this->get_plugin_name(), $this->get_version() );
-		$this->loader->add_action( 'init', $plugin_name_shortcodes, 'add_shortcodes' );
+		$plugin_name_to_replace_shortcodes = new Plugin_Name_Shortcodes( $this->get_plugin_name(), $this->get_version() );
+		$this->loader->add_action( 'init', $plugin_name_to_replace_shortcodes, 'add_shortcodes' );
 
 	}
 

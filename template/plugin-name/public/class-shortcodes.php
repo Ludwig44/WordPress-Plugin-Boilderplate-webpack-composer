@@ -50,17 +50,17 @@ class Plugin_Name_Shortcodes {
 	 * @return void
 	 */
 	public function add_shortcodes() {
-		add_shortcode( 'plugin_name_informations', array( $this, 'shortcode_plugin_name_informations' ) );
+		add_shortcode( 'plugin_name_to_replace_informations', array( $this, 'shortcode_plugin_name_to_replace_informations' ) );
 	}
 	
 	/**
-	 * shortcode_plugin_name_informations
+	 * shortcode_plugin_name_to_replace_informations
 	 * 
 	 * @since    1.0.0
 	 * @param  mixed $atts
 	 * @return void
 	 */
-	public function shortcode_plugin_name_informations() {
+	public function shortcode_plugin_name_to_replace_informations() {
 		return 'Plugin Name';
 	}
 }
