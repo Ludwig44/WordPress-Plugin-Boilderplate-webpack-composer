@@ -10,3 +10,9 @@
  */
 ?>
 <h1><?php echo __('WordPress Plugin Boilerplate settings', PLUGIN_NAME_TEXT_DOMAIN); ?></h1>
+<form action="" method="post">
+    <table class="form-table">
+        <?php self::render_fields(); ?>
+    </table>
+    <?php submit_button(); ?>
+</form>
