@@ -25,11 +25,26 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 /**
+ * Check if your are in local or production environment
+ */
+$is_local = $_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1';
+
+/**
+ * If you are in local environment, you can use the version number as a timestamp for better cache management in your browser
+ */
+$version  = $is_local ? time() : '1.0.0';
+
+/**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'PLUGIN_NAME_VERSION', '1.0.0' );
+define( 'PLUGIN_NAME_VERSION', $version );
+
+/**
+ * You can use this const for check if you are in local environment
+ */
+define( 'PLUGIN_NAME_DEV_MOD', $is_local );
 
 /**
  * Plugin Name text domain for internationalization.
