@@ -1,3 +1,8 @@
+# import conf file
+. setup.conf
+
+echo $custom_output
+
 echo "----------------------------------------------------";
 echo "------🚜 Welcome in Boilderplate Generator 🚜 ------";
 echo "--------------------By Ludwig44--------------------";
@@ -38,6 +43,7 @@ then
     plugin_name_with_hyphen=$(echo $plugin_name_lowercase | sed -e 's/_/-/g');
     plugin_name_with_space=$(echo $plugin_name | sed -e 's/_/ /g');
     files_parameters=$(echo \( -name "*.php" -o -name "*.json" -o -name "*.txt" -o -name "*.pot" -o -name "*.css" -o -name "*.js" \) );
+    output_folder_path="./output/";
 
     #create plugin dir
     mkdir -p ./output/$plugin_name_with_hyphen;
@@ -87,6 +93,19 @@ then
     echo "📦 Installing composer...";
     composer install --working-dir=./output/$plugin_name_with_hyphen/includes;
     echo "✅ Composer installed.";
+    
+    if [ $use_custom_output = "1" ]
+    then
+        echo "Plugin Folder are moved in " $custom_output
+        mv ./output/$plugin_name_with_hyphen "$custom_output";
+        output_folder_path="$custom_output";
+    fi
+
+    if [ $open_dir_after_generate = "1" ]
+    then
+        echo "📂 Opening parent folder...";
+        open "$output_folder_path";
+    fi
 
     echo "----------------------------------------------------";
     echo "-------------🎉 Installation complete 🎉-------------";

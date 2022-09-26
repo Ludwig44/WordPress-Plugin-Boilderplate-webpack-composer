@@ -50,18 +50,21 @@ class Plugin_Name_Settings {
 	public function menu_pages_array(){
 
 		return array(
-			'my_plugin_settings' => array(
-				'title' 		=> __( 'My plugin Settings', PLUGIN_NAME_TEXT_DOMAIN ),
+			// PAGE FOR SETTINGS OF PLUGIN (is parent page)
+			'plugin-name-settings' => array(
+				'title' 		=> __( 'WordPress Plugin Boilerplate Settings', PLUGIN_NAME_TEXT_DOMAIN ),
 				'capability'	=> 'manage_options',
 				'callback'		=> 'render_menu_page',
 				'position'		=> 1,
 				'icon'			=> 'dashicons-portfolio',
 				'tabs'	=> array(
-					'tab01_options' => array(
-						'title' 	=> __( 'Tab 01', PLUGIN_NAME_TEXT_DOMAIN ),
+					// FIRST TAB
+					'tab-1' => array(
+						'title' 	=> __( 'First Tab Sample', PLUGIN_NAME_TEXT_DOMAIN ),
 						'sections'	=> array(
-							'first_section_id' => array(
-								'title'		=> __( 'First Section', PLUGIN_NAME_TEXT_DOMAIN ),
+							// FIRST SECTION
+							'section-1' => array(
+								'title'		=> __( 'First Section Sample', PLUGIN_NAME_TEXT_DOMAIN ),
 								'callback'	=> 'first_section_callback',
 								'fields'	=> array(
 									'my_first_name' => array(
@@ -89,8 +92,8 @@ class Plugin_Name_Settings {
 										'callback'		=> 'render_select',
 										'args'			=> array(
 											'description'	=>  __( 'This is a description', PLUGIN_NAME_TEXT_DOMAIN ),
-											'default'	=> __( 'Select an option', PLUGIN_NAME_TEXT_DOMAIN ),
-											'options'	=> array(
+											'default'		=> __( 'Select an option', PLUGIN_NAME_TEXT_DOMAIN ),
+											'options'		=> array(
 												'option01'	=> __( 'Option 01', PLUGIN_NAME_TEXT_DOMAIN ),
 												'option02'	=> __( 'Option 02', PLUGIN_NAME_TEXT_DOMAIN ),
 												'option03'	=> __( 'Option 03', PLUGIN_NAME_TEXT_DOMAIN ),
@@ -100,8 +103,9 @@ class Plugin_Name_Settings {
 									)
 								)
 							),
-							'second_section_id' => array(
-								'title'		=> __( 'second Section', PLUGIN_NAME_TEXT_DOMAIN ),
+							// SECOND SECTION
+							'section-2' => array(
+								'title'		=> __( 'Second Section Sample', PLUGIN_NAME_TEXT_DOMAIN ),
 								'fields'	=> array(
 									'my_textarea'	=> array(
 										'label'			=> __( 'Textarea', PLUGIN_NAME_TEXT_DOMAIN ),
@@ -142,11 +146,12 @@ class Plugin_Name_Settings {
 							)
 						)
 					),
-					'tab02_options' => array(
-						'title' 	=> __( 'Tab 02', PLUGIN_NAME_TEXT_DOMAIN ),
+					// SECOND TAB
+					'tab-2' => array(
+						'title' 	=> __( 'Second Tab Sample', PLUGIN_NAME_TEXT_DOMAIN ),
 						'sections'	=> array(
-							'first_section_id02' => array(
-								'title'		=> __( 'First Section Tab 02', PLUGIN_NAME_TEXT_DOMAIN ),
+							'section-1' => array(
+								'title'		=> __( 'First Section Sample', PLUGIN_NAME_TEXT_DOMAIN ),
 								'fields'	=> array(
 									'my_first_name02' => array(
 										'label'			=> __( 'First Name Tab 02', PLUGIN_NAME_TEXT_DOMAIN ),
@@ -163,9 +168,10 @@ class Plugin_Name_Settings {
 					)
 				)
 			),
-			'my_plugin_settings_02' => array(
-				'title'		=> __( 'My plugin Settings 02', PLUGIN_NAME_TEXT_DOMAIN ),
-				'parent' 	=> 'my_plugin_settings',
+			// PAGE FOR SETTINGS OF PLUGIN (is child page)
+			'plugin-name-tools' => array(
+				'title'		=> __( 'WordPress Plugin Boilerplate tools', PLUGIN_NAME_TEXT_DOMAIN ),
+				'parent' 	=> 'plugin-name-settings',
 			)
 		);
 	}
@@ -454,8 +460,6 @@ class Plugin_Name_Settings {
 	 * @return void
 	 */
 	public function first_section_callback() {
-
-		echo 'This is the dscription of a section';
+		echo 'This section is sample for show how to create a section.';
 	}
-
 }
