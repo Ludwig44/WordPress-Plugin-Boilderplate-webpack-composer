@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Toggle component like IOS style for the settings page
+ */
 if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
     $value_to_save = $_POST[ $data['name'] ] == '1' ? '1' : '0';
     update_option( $data['name'], sanitize_text_field( $_POST[ $data['name'] ] ) );

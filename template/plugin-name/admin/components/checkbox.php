@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Checkbox component for the settings page
+ */
 if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
     $_POST[ $data['name'] ] = is_array( $_POST[ $data['name'] ] ) ? $_POST[ $data['name'] ] : array();
     update_option( $data['name'], $_POST[ $data['name'] ] );

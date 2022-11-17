@@ -1,4 +1,7 @@
 <?php
+/**
+ * Code editor component like theme editor for the settings page
+ */
 if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
     update_option( $data['name'], $_POST[ $data['name'] ] );
 }

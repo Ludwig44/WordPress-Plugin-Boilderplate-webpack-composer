@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Radio component for the settings page
+ */
 if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
     update_option( $data['name'], sanitize_text_field( $_POST[ $data['name'] ] ) );
 }

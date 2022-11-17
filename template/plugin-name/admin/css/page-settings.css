@@ -1,3 +1,7 @@
+:root {
+  --plugin-name-primary-color: #2196F3;
+}
+
 .radio-values,
 .checkbox-values {
   margin: 0;
@@ -35,17 +39,17 @@
   width: 26px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #fff;
   -webkit-transition: .4s;
   transition: .4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: var(--plugin-name-primary-color);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px var(--plugin-name-primary-color);
 }
 
 input:checked + .slider:before {
@@ -75,8 +79,34 @@ input:checked + .slider:before {
   background: #fff;
 }
 
+.plugin-name-media-input--is-empty {
+  margin-bottom: 10px;
+}
+
+.plugin-name-medias-selected-container {
+  max-height: 200px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.plugin-name-medias-selected-container:after {
+  content: "";
+  display: block;
+  height: 35px;
+  width: 100%;
+  background: linear-gradient(360deg, #fff, transparent);
+  position: sticky;
+  bottom: 0;
+  left: 0;
+}
+
 .plugin-name-medias-selected-container .media-preview-image {
   max-height: 50px;
   max-width: 50px;
   margin: 5px;
+}
+
+.button-secondary.button-remove-media {
+  color: #bb0000;
+  border-color: #bb0000;
 }

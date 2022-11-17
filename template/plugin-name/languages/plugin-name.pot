@@ -1,10 +1,10 @@
-# Blank WordPress Pot
+# WordPress Plugin Boilerplate Pot
 # Copyright 2014 ...
 # This file is distributed under the GNU General Public License v3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Plugin Name v1.0.0\n"
-"POT-Creation-Date: 2012-10-05 10:50+0100\n"
+"Project-Id-Version: WordPress Plugin Boilerplate v1.0.0\n"
+"POT-Creation-Date: 2022-11-01 10:50+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Your Name <email@example.com>\n"
 "Language-Team: Your Name <email@example.com>\n"
