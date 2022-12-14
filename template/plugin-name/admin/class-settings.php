@@ -65,7 +65,7 @@ class Plugin_Name_Settings {
 	 * @return void
 	 */
 	public function render_settings_page() {
-		wp_enqueue_style( PLUGIN_NAME_TEXT_DOMAIN . '-settings', PLUGIN_NAME_PLUGIN_URL . 'admin/css/page-settings.css', array(), PLUGIN_NAME_VERSION, 'all' );
+		wp_enqueue_style( PLUGIN_NAME_TEXT_DOMAIN . '-settings', PLUGIN_NAME_PLUGIN_URL . 'admin/css/components.css', array(), PLUGIN_NAME_VERSION, 'all' );
 		require_once PLUGIN_NAME_PLUGIN_PATH . 'admin/templates/page-settings.php';
 	}
 	

@@ -102,46 +102,46 @@ class Plugin_Name {
 		/**
 		 * The class responsible for loading composer dependencies.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/vendor/autoload.php';
+		require_once PLUGIN_NAME_PLUGIN_PATH . 'includes/vendor/autoload.php';
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-loader.php';
+		require_once PLUGIN_NAME_PLUGIN_PATH . 'includes/class-plugin-name-loader.php';
 
 		/**
 		 * This file is loaded only on local environement for test or debug.
 		 */
 		if( $_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1' ){
-			require_once plugin_dir_path( dirname( __FILE__ ) ). 'includes/dev-toolkits.php';
+			require_once PLUGIN_NAME_PLUGIN_PATH. 'includes/dev-toolkits.php';
 		}
 		
 		/**
 		 * The global functions for this plugin
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/global-functions.php';
+		require_once PLUGIN_NAME_PLUGIN_PATH . 'includes/global-functions.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-plugin-name-i18n.php';
+		require_once PLUGIN_NAME_PLUGIN_PATH . 'includes/class-plugin-name-i18n.php';
 
 		/**
 		 * The class responsible of settings.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-settings.php';
+		require_once PLUGIN_NAME_PLUGIN_PATH . 'admin/class-settings.php';
 		
 		/**
 		 * The class responsible of cron job.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-cron-job.php';
+		require_once PLUGIN_NAME_PLUGIN_PATH . 'admin/class-cron-job.php';
 
 		/**
 		 * The class responsible of shortcodes.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-shortcodes.php';
+		require_once PLUGIN_NAME_PLUGIN_PATH . 'public/class-shortcodes.php';
 
 		$this->loader = new Plugin_Name_Loader();
 

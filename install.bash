@@ -13,6 +13,10 @@ echo "----------------------------------------------------";
 echo "What do you want to do?";
 echo "1. Create a new plugin (required composer)";
 echo "2. Delete all plugins in output folder";
+if [ $is_contributor_mode == "1" ] && [ $open_dir_after_generate == "1"  ]
+then
+    echo "$. Duplicate plugin-name folder for test modification";
+fi
 echo "q: Exit";
 
 read -p "Your choice: " choice;
@@ -121,4 +125,19 @@ then
         rm -rf -v ./output/*;
         echo "✅ All plugins deleted.";
     fi
+fi
+
+if [ $choice = "$" ] && [ $is_contributor_mode == "1" ] && [ $open_dir_after_generate == "1" ]
+then
+    # delete plugin in $custom_output if exist
+    echo "🗑️ Deleting old version of plugin...";
+    rm -rf -v "$custom_output/plugin-name";
+
+    # duplicate plugin folder to $custom_output
+    echo "📦 Copying new version of plugin...";
+    cp -r -v ./template/plugin-name "$custom_output";
+
+    echo "📦 Installing composer...";
+    composer install --working-dir="$custom_output/plugin-name/includes";
+    echo "✅ Composer installed.";
 fi
