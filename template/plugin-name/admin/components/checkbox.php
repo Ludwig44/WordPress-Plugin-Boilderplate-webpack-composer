@@ -2,24 +2,28 @@
 /**
  * Checkbox component for the settings page
  */
-if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
-    $_POST[ $data['name'] ] = is_array( $_POST[ $data['name'] ] ) ? $_POST[ $data['name'] ] : array();
-    update_option( $data['name'], $_POST[ $data['name'] ] );
+$key_option = sanitize_key( $data['name'] );
+
+if( isset( $key_option, $_POST[ $key_option ] ) ) {
+
+    $value = is_array($_POST[ $key_option ]) ? array_map( 'sanitize_text_field', $_POST[ $key_option ] ) : array();
+    update_option( $key_option, $value );
+    
 }
 if(isset($data['options']) && is_array($data['options'])) {
     ?>
-    <input type="hidden" name="<?php echo esc_attr( $data['name'] ?? '' ); ?>" value="">
-    <div class="plugin-name-options">
+    <input type="hidden" name="<?php echo esc_attr( $key_option ?? '' ); ?>" value="">
+    <div class="quickwebp-options">
         <?php
-        $option_saved = get_option( $data['name'], array() );
+        $option_saved = get_option( $key_option, $data['default'] );
         $option_saved = is_array( $option_saved ) ? $option_saved : array();
         foreach( $data['options'] as $key => $option ) {
             ?>
             <label>
                 <input
                     type="checkbox" 
-                    name="<?php echo esc_attr( $data['name'] ?? '' ); ?>[]"
-                    id="<?php echo esc_attr( ($data['name'] ?? '') . "-$key" ); ?>"
+                    name="<?php echo esc_attr( $key_option ?? '' ); ?>[]"
+                    id="<?php echo esc_attr( ($key_option ?? '') . "-$key" ); ?>"
                     value="<?php echo esc_attr( $option['value'] ?? '' ); ?>"
                     <?php checked( in_array( $option['value'], $option_saved ) ); ?>
                 >

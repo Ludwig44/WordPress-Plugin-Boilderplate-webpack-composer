@@ -2,17 +2,20 @@
 /**
  * Code editor component like theme editor for the settings page
  */
-if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
-    update_option( $data['name'], $_POST[ $data['name'] ] );
+
+$key_option = sanitize_key( $data['name'] );
+
+if( isset( $key_option, $_POST[ $key_option ] ) ) {
+    update_option( $key_option, $_POST[ $key_option ] );
 }
 ?>
 <textarea 
-    name="<?php echo esc_attr( $data['name'] ?? '' ); ?>"
-    id="<?php echo esc_attr( $data['name'] ?? '' ); ?>"
-><?php echo esc_textarea( stripslashes(  get_option( $data['name'] ?? '' ) ) ); ?></textarea>
+    name="<?php echo esc_attr( $key_option ?? '' ); ?>"
+    id="<?php echo esc_attr( $key_option ?? '' ); ?>"
+><?php echo esc_textarea( stripslashes(  get_option( $key_option ?? '' ) ) ); ?></textarea>
 
 <style>
-    <?php echo '.' . esc_attr( $data['name'] ) . '-container'; ?> > .CodeMirror {
+    <?php echo '.' . esc_attr( $key_option ) . '-container'; ?> > .CodeMirror {
         height: <?php echo esc_attr( $data['height'] ?? "auto" ); ?>;
     }
 </style>
@@ -24,7 +27,7 @@ if ( $settings ) {
     wp_add_inline_script(
         'code-editor',
         sprintf(
-            'jQuery( function() { wp.codeEditor.initialize( "'. $data['name'] .'", %s ); } );',
+            'jQuery( function() { wp.codeEditor.initialize( "'. $key_option .'", %s ); } );',
             wp_json_encode( $settings )
         )
     );

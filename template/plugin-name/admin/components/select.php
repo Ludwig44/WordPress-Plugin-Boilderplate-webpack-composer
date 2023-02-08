@@ -2,20 +2,23 @@
 /**
  * Select component for the settings page
  */
-if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
-    update_option( $data['name'], sanitize_text_field( $_POST[ $data['name'] ] ) );
+
+$key_option = sanitize_key( $data['name'] );
+
+if( isset( $key_option, $_POST[ $key_option ] ) ) {
+    update_option( $key_option, sanitize_text_field( $_POST[ $key_option ] ) );
 }
 if(isset($data['options']) && is_array($data['options'])) {
     ?>
     <select 
-        name="<?php echo esc_attr( $data['name'] ?? '' ); ?>"
-        id="<?php echo esc_attr( $data['name'] ?? '' ); ?>"
+        name="<?php echo esc_attr( $key_option ?? '' ); ?>"
+        id="<?php echo esc_attr( $key_option ?? '' ); ?>"
     >
         <option value="">
-            <?php echo esc_html( $data['placeholder'] ?? __( 'Select an option', PLUGIN_NAME_TEXT_DOMAIN ) ); ?>
+            <?php echo esc_html( $data['placeholder'] ?? __( 'Select an option', QUICKWEBP_TEXT_DOMAIN ) ); ?>
         </option>
         <?php
-        $option_saved = get_option( $data['name'] );
+        $option_saved = get_option( $key_option );
         foreach( $data['options'] as $option ) {
             ?>
             <option 
