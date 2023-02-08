@@ -19,7 +19,7 @@ if(isset($data['options']) && is_array($data['options'])) {
                 <input
                     type="checkbox" 
                     name="<?php echo esc_attr( $data['name'] ?? '' ); ?>[]"
-                    id="<?php echo esc_attr( $data['name'] ?? '' ) . "-$key"; ?>"
+                    id="<?php echo esc_attr( ($data['name'] ?? '') . "-$key" ); ?>"
                     value="<?php echo esc_attr( $option['value'] ?? '' ); ?>"
                     <?php checked( in_array( $option['value'], $option_saved ) ); ?>
                 >

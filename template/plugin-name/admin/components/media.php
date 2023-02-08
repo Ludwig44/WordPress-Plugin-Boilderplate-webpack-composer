@@ -54,7 +54,7 @@ $medias        = $medias_string ? explode( ',', $medias_string ) : array();
 <script type="text/javascript">
     jQuery(document).ready(function($){
         const id = '<?php echo esc_attr( $data['name'] ?? '' ); ?>';
-        const media_template_preview = '<?php echo $image_preview_template; ?>';
+        const media_template_preview = '<?php echo wp_kses_post( $image_preview_template ); ?>';
         jQuery( "#" + id + "_button" ).click(function(e) {
             e.preventDefault();
             var image = wp.media({ 

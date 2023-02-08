@@ -10,5 +10,5 @@ if( isset( $data['name'], $_POST[ $data['name'] ] ) ) {
     name="<?php echo esc_attr( $data['name'] ?? '' ); ?>"
     class="regular-text"
     id="<?php echo esc_attr( $data['name'] ?? '' ); ?>"
-    <?php echo isset( $data['pattern'] ) ? 'pattern="' . $data['pattern'] . '"' : ''; ?>
+    <?php echo isset( $data['pattern'] ) ? 'pattern="' . esc_attr( $data['pattern'] ) . '"' : ''; ?>
 ><?php echo esc_html( get_option( $data['name'] ) ); ?></textarea>
