@@ -114,10 +114,6 @@ input:checked + .slider:before {
 /** 
  * CSS for Range Slider component
  */
- :root {
-  --quickwebp-primary-color: #2196f3;
-  
-}
 .rang-slider {
   display: inline-block;
   height: 22px;
@@ -150,7 +146,7 @@ input:checked + .slider:before {
   appearance: none;
   width: var(--thumb-size);
   height: var(--thumb-size);
-  background: var(--quickwebp-primary-color);
+  background: var(--plugin-name-primary-color);
   border-radius: 50%;
   border: 2px solid #fff;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
@@ -159,7 +155,7 @@ input:checked + .slider:before {
 .rang-slider input[type=range]::-moz-range-thumb {
   width: var(--thumb-size);
   height: var(--thumb-size);
-  background: var(--quickwebp-primary-color);
+  background: var(--plugin-name-primary-color);
   border-radius: 50%;
   border: 2px solid #fff;
   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
@@ -193,7 +189,7 @@ input:checked + .slider:before {
   pointer-events: none;
   z-index: -1;
   border-radius: 20px;
-  border: 1px solid var(--quickwebp-primary-color);
+  border: 1px solid var(--plugin-name-primary-color);
 }
 .rang-slider input[type=range] ~ .progress::before {
   content: "";
@@ -203,7 +199,7 @@ input:checked + .slider:before {
   clip-path: var(--clip);
   top: 0;
   bottom: 0;
-  background: var(--quickwebp-primary-color);
+  background: var(--plugin-name-primary-color);
   z-index: 1;
   border-radius: inherit;
 }
