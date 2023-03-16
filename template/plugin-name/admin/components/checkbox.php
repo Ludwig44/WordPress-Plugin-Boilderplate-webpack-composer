@@ -15,7 +15,7 @@ if(isset($data['options']) && is_array($data['options'])) {
     <input type="hidden" name="<?php echo esc_attr( $key_option ?? '' ); ?>" value="">
     <div class="quickwebp-options">
         <?php
-        $option_saved = get_option( $key_option, $data['default'] );
+        $option_saved = get_option( $key_option, $data['default'] ?? '' );
         $option_saved = is_array( $option_saved ) ? $option_saved : array();
         foreach( $data['options'] as $key => $option ) {
             ?>

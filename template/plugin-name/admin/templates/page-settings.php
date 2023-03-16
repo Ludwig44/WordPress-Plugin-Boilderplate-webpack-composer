@@ -108,6 +108,17 @@
                 ),
             ),
         ) ); ?>
+
+        <?php $this->render_component( array(
+            'type'        => 'range-slider',
+            'min'         => 0,
+            'max'         => 100,
+            'step'        => 1,
+            'unit'        => '%',
+            'name'        => 'sample_range_slider',
+            'label'       => __( 'Sample Range Slider', PLUGIN_NAME_TEXT_DOMAIN ),
+            'default'     => 50,
+        )); ?>
         
     </table>
     <?php submit_button(); ?>

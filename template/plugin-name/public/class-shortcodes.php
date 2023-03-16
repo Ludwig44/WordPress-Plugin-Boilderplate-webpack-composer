@@ -61,6 +61,6 @@ class Plugin_Name_Shortcodes {
 	 * @return void
 	 */
 	public function shortcode_plugin_name_to_replace_informations() {
-		return 'Plugin Name';
+		return 'WordPress Plugin Boilerplate v' . PLUGIN_NAME_VERSION;
 	}
 }

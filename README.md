@@ -71,7 +71,7 @@ The vendor is already installed when your plugin is generated unless composer wa
 
 ## Webpack usage
 
-Execute all command for webpack in `/public/src`. For more documentation for webpack [follow this link](https://webpack.js.org/).
+Execute all command for webpack in `/public/assets`. For more documentation for webpack [follow this link](https://webpack.js.org/).
 
 ### Install webpack
 
@@ -79,20 +79,16 @@ Just launch `npm install`
 
 ### Add JS files
 
-1. In `/public/src/js` add a file for exemple `exemple.js`, you can import other files and component. For more information show [this documentation](https://webpack.js.org/api/module-methods/#import).
-2. Add the new file in `/public/src/webpack.config.js` in `entry` const like this:
-```
-'exemple' : JS_DIR + '/exemple.js'
-```
-2. Launch compilation.
-3. After lanch compilation, your file output in `/public/js`.
+1. In `public/assets/src/js` add a file for exemple `exemple.js`, you can import other files and component. For more information show [this documentation](https://webpack.js.org/api/module-methods/#import).
+2. Launch compilation with `npm run dev` or `npm run prod` command.
+3. After lanch compilation, your file output in `public/assets/build`.
 
 ### Add SCSS files
 
-1. In `/public/src/scss` add a file for exemple `exemple.scss`.
-2. Add in your js file exemple : `/public/src/js/exemple.js` an import for scss file.
+1. In `public/assets/src/scss` add a file for exemple `exemple.scss`.
+2. Add in your js file exemple : `public/assets/src/js/exemple.js` an import for scss file.
 3. Launch compilation.
-4. After lanch compilation, your file output in `/public/css`.
+4. After lanch compilation, your file output in `public/assets/build`.
 
 ### Compilation
 

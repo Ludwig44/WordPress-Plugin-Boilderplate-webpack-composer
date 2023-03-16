@@ -1,0 +1,15 @@
+{
+    "name": "plugin-name",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+        "dev": "wp-scripts start src/js/*.js",
+        "prod": "wp-scripts build src/js/*.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "@wordpress/scripts": "^25.2.0"
+    }
+}
