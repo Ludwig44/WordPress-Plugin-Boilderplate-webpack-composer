@@ -18,7 +18,7 @@ $medias        = $medias_string ? explode( ',', $medias_string ) : array();
 ?>
 <div class="quickwebp-media-input-container">
     <div id="<?php echo esc_attr( $key_option ?? '' ); ?>_is_empty" class="quickwebp-media-input--is-empty" style="display: <?php echo !empty($medias) ? 'none' : 'block'; ?>">
-        <?php _e( 'No image selected', QUICKWEBP_TEXT_DOMAIN ); ?>
+        <?php _e( 'No image selected', PLUGIN_NAME_TEXT_DOMAIN ); ?>
     </div>
     <input 
         type="hidden" 
@@ -44,13 +44,13 @@ $medias        = $medias_string ? explode( ',', $medias_string ) : array();
         name="<?php echo esc_attr( $key_option ?? '' ); ?>_button"
         id="<?php echo esc_attr( $key_option ?? '' ); ?>_button"
         class="button button-secondary"
-        value="<?php echo esc_attr( $data['button_text'] ?? __( 'Select media', QUICKWEBP_TEXT_DOMAIN ) ); ?>"
+        value="<?php echo esc_attr( $data['button_text'] ?? __( 'Select media', PLUGIN_NAME_TEXT_DOMAIN ) ); ?>"
     >
     <input type="button" 
         name="<?php echo esc_attr( $key_option ?? '' ); ?>_remove_button"
         id="<?php echo esc_attr( $key_option ?? '' ); ?>_remove_button"
         class="button button-secondary button-remove-media"
-        value="<?php echo esc_attr( $data['remove_button_text'] ?? __( 'Remove medias', QUICKWEBP_TEXT_DOMAIN ) ); ?>"
+        value="<?php echo esc_attr( $data['remove_button_text'] ?? __( 'Remove medias', PLUGIN_NAME_TEXT_DOMAIN ) ); ?>"
         <?php echo empty( $medias ) ? 'disabled' : ''; ?>
     >
 </div>
@@ -62,7 +62,7 @@ $medias        = $medias_string ? explode( ',', $medias_string ) : array();
         jQuery( "#" + id + "_button" ).click(function(e) {
             e.preventDefault();
             var image = wp.media({ 
-                title: '<?php echo esc_attr( $data['button_text'] ?? __( 'Select media', QUICKWEBP_TEXT_DOMAIN ) ); ?>',
+                title: '<?php echo esc_attr( $data['button_text'] ?? __( 'Select media', PLUGIN_NAME_TEXT_DOMAIN ) ); ?>',
                 multiple: <?php echo esc_attr( $is_multiple ); ?>
             })
 

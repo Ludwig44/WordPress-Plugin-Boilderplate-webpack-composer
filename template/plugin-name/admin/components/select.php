@@ -15,7 +15,7 @@ if(isset($data['options']) && is_array($data['options'])) {
         id="<?php echo esc_attr( $key_option ?? '' ); ?>"
     >
         <option value="">
-            <?php echo esc_html( $data['placeholder'] ?? __( 'Select an option', QUICKWEBP_TEXT_DOMAIN ) ); ?>
+            <?php echo esc_html( $data['placeholder'] ?? __( 'Select an option', PLUGIN_NAME_TEXT_DOMAIN ) ); ?>
         </option>
         <?php
         $option_saved = get_option( $key_option );
