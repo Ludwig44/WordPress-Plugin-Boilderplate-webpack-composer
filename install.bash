@@ -6,7 +6,12 @@ echo $custom_output
 echo "----------------------------------------------------";
 echo "------🚜 Welcome in Boilderplate Generator 🚜 ------";
 echo "--------------------By Ludwig44--------------------";
-echo "------------https://github.com/Ludwig44/------------";
+echo "----------- https://github.com/Ludwig44/ -----------";
+echo "----------------------------------------------------";
+echo "-----------------📣  Version 1.0 📣-----------------";
+echo "----------------------------------------------------";
+echo "-----------------💰 Contribute 💰------------------";
+echo "------------- https://bmc.link/ludwig/ -------------";
 echo "----------------------------------------------------";
 
 # a menu to select action
@@ -140,4 +145,12 @@ then
     echo "📦 Installing composer...";
     composer install --working-dir="$custom_output/plugin-name/includes";
     echo "✅ Composer installed.";
+
+    # if watch mode
+    if [ $watch_mode == "1" ]
+    then
+        # use rsync to sync files from template to $custom_output
+         fswatch -o ./template/plugin-name | xargs -n1 -I{} rsync -av --exclude='vendor' --exclude='.git' ./template/plugin-name/ "$custom_output/plugin-name";
+
+    fi
 fi

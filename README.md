@@ -69,11 +69,11 @@ Execute all command for composer in `/includes`. For more documentation for comp
 
 The vendor is already installed when your plugin is generated unless composer was not installed on your machine, in this case go to `/includes` and run `composer install`.
 
-## Webpack usage
+## Webpack usage (changed for [@wordpress/scripts](https://www.npmjs.com/package/@wordpress/scripts))
 
-Execute all command for webpack in `/public/assets`. For more documentation for webpack [follow this link](https://webpack.js.org/).
+Execute all command for @wordpress/scripts in `/public/assets`.
 
-### Install webpack
+### Install node modules
 
 Just launch `npm install`
 
@@ -94,3 +94,18 @@ Just launch `npm install`
 
 * If you are in dev environement you can use this command `npm run dev` for use hot reload and non minified code for js and css.
 * If you are in prod environement you can use this command `npm run prod` for minified css and js code.
+
+### Output files and usage in WordPress
+When you compile files, you have 3 types of files in `public/assets/build` folder:
+* `plugin-name.asset.php` : This file is for register script and style in WordPress.
+* `plugin-name.js` : This file is for js code.
+* `plugin-name.css` : This file is for css code.
+
+For use this files in WordPress, you have to register script and style in your plugin. For this you have to use `wp_register_script` and `wp_register_style` functions. For more information [follow this link](https://developer.wordpress.org/reference/functions/wp_register_script/).
+
+You can use this code for register script and style in WordPress:
+```
+$assets_data = include( PLUGIN_NAME_PLUGIN_PATH . 'public/assets/build/plugin-name.asset.php' );
+wp_enqueue_script( 'plugin-name-js', PLUGIN_NAME_PLUGIN_URL . 'public/assets/build/plugin-name.js', $assets_data['dependencies'] ?? array(), $assets_data['version'] ?? filemtime( PLUGIN_NAME_PLUGIN_PATH . 'public/assets/build/plugin-name.js' ), true );
+wp_enqueue_style( 'plugin-name-css', PLUGIN_NAME_PLUGIN_URL . 'public/assets/build/plugin-name.css', array(), filemtime( PLUGIN_NAME_PLUGIN_PATH . 'public/assets/build/plugin-name.css' ) );
+```
