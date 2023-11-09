@@ -27,7 +27,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Check if your are in local or production environment
  */
-$is_local = $_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1';
+$is_local = isset($_SERVER['REMOTE_ADDR']) && ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' || $_SERVER['REMOTE_ADDR'] == '::1');
 
 /**
  * If you are in local environment, you can use the version number as a timestamp for better cache management in your browser
@@ -65,22 +65,19 @@ define( 'PLUGIN_NAME_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
  */
-function activate_plugin_name_to_replace() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
+register_activation_hook( __FILE__, function(){
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-clean-my-wordpress-activator.php';
 	Plugin_Name_Activator::activate();
-}
+} );
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
-function deactivate_plugin_name_to_replace() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
+register_deactivation_hook( __FILE__, function(){
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-clean-my-wordpress-deactivator.php';
 	Plugin_Name_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_plugin_name_to_replace' );
-register_deactivation_hook( __FILE__, 'deactivate_plugin_name_to_replace' );
+} );
 
 /**
  * The core plugin class that is used to define internationalization,

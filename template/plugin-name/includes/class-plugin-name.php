@@ -40,24 +40,6 @@ class Plugin_Name {
 	protected $loader;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
-	 */
-	protected $plugin_name;
-
-	/**
-	 * The current version of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
-	 */
-	protected $version;
-
-	/**
 	 * Define the core functionality of the plugin.
 	 *
 	 * Set the plugin name and the plugin version that can be used throughout the plugin.
@@ -67,12 +49,6 @@ class Plugin_Name {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
-		} else {
-			$this->version = '1.0.0';
-		}
-		$this->plugin_name = 'plugin-name';
 
 		$this->load_dependencies();
 		$this->set_locale();
@@ -150,16 +126,12 @@ class Plugin_Name {
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Plugin_Name_i18n class in order to set the domain and to register the hook
-	 * with WordPress.
-	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
 	private function set_locale() {
 
 		$plugin_i18n = new Plugin_Name_i18n();
-
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
 
 	}
@@ -173,10 +145,10 @@ class Plugin_Name {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_name_to_replace_settings = new Plugin_Name_Settings( $this->get_plugin_name(), $this->get_version() );
+		$plugin_name_to_replace_settings = new Plugin_Name_Settings();
 		$this->loader->add_action( 'admin_menu', $plugin_name_to_replace_settings, 'add_settings_menu' );
 
-		$plugin_name_to_replace_cron_job = new Plugin_Name_Cron_Job( $this->get_plugin_name(), $this->get_version() );
+		$plugin_name_to_replace_cron_job = new Plugin_Name_Cron_Job();
 
 	}
 
@@ -189,7 +161,7 @@ class Plugin_Name {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_name_to_replace_shortcodes = new Plugin_Name_Shortcodes( $this->get_plugin_name(), $this->get_version() );
+		$plugin_name_to_replace_shortcodes = new Plugin_Name_Shortcodes();
 		$this->loader->add_action( 'init', $plugin_name_to_replace_shortcodes, 'add_shortcodes' );
 
 	}
@@ -211,7 +183,7 @@ class Plugin_Name {
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
-		return $this->plugin_name;
+		return defined( 'PLUGIN_NAME_TEXT_DOMAIN' ) ? PLUGIN_NAME_TEXT_DOMAIN : 'plugin-name';
 	}
 
 	/**
@@ -231,7 +203,7 @@ class Plugin_Name {
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {
-		return $this->version;
+		return defined( 'PLUGIN_NAME_VERSION' ) ? PLUGIN_NAME_VERSION : '1.0.0';
 	}
 
 }

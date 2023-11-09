@@ -11,24 +11,6 @@
 class Plugin_Name_Cron_Job {
 
 	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
-
-	/**
 	 * The taxonomy.
 	 *
 	 * @since    1.0.0
@@ -37,17 +19,13 @@ class Plugin_Name_Cron_Job {
 	 * @var      array    $taxonomy    The taxonomies where you want to put the image.
 	 */
 	private $taxonomy;
-
+	
 	/**
-	 * Initialize the class and set its properties.
+	 * __construct
 	 *
-	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string   $version    The version of this plugin.
+	 * @return void
 	 */
-	public function __construct( $plugin_name, $version ) {
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+	public function __construct() {
 
 		add_filter('cron_schedules', [$this, 'crons_registrations'] );
 
@@ -73,7 +51,7 @@ class Plugin_Name_Cron_Job {
 			'exemple' => array(
 				"file_path" => "admin/cron/exemple.php",
 				'interval' 	=> HOUR_IN_SECONDS * 24,
-				'display' 	=> __( 'Exemple of description', PLUGIN_NAME_TEXT_DOMAIN )
+				'display' 	=> __( 'Exemple of description', 'plugin-name' )
 			)
 			*/
 		);
