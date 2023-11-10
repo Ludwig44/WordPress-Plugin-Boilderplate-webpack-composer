@@ -66,7 +66,7 @@ define( 'PLUGIN_NAME_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
  * This action is documented in includes/class-plugin-name-activator.php
  */
 register_activation_hook( __FILE__, function(){
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-clean-my-wordpress-activator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-activator.php';
 	Plugin_Name_Activator::activate();
 } );
 
@@ -75,7 +75,7 @@ register_activation_hook( __FILE__, function(){
  * This action is documented in includes/class-plugin-name-deactivator.php
  */
 register_deactivation_hook( __FILE__, function(){
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-clean-my-wordpress-deactivator.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-plugin-name-deactivator.php';
 	Plugin_Name_Deactivator::deactivate();
 } );
 
