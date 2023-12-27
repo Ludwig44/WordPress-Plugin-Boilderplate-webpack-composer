@@ -16,7 +16,7 @@ if [ $choice = "1" ]
 then 
     rm -rf $plugin_name.zip;
     exclude_files="--exclude=.* --exclude=.DS_Store --exclude=__MACOSX --exclude=scripts.bash --exclude=$plugin_name.zip --exclude=public/assets/src/* --exclude=*package-lock.json --exclude=*package.json --exclude=*README.md --exclude=*webpack.config.js --exclude=*node_modules/*";
-    echo "Exporting to FREE version to ZIP";
+    echo "Exporting to ZIP";
     zip -rq $plugin_name.zip $plugin_name $exclude_files;
     
      # Open the folder

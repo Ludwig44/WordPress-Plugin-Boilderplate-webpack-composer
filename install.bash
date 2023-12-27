@@ -51,7 +51,7 @@ then
     plugin_name_uppercase=$(echo $plugin_name | tr '[:lower:]' '[:upper:]');
     plugin_name_with_hyphen=$(echo $plugin_name_lowercase | sed -e 's/_/-/g');
     plugin_name_with_space=$(echo $plugin_name | sed -e 's/_/ /g');
-    files_parameters=$(echo \( -name "*.php" -o -name "*.json" -o -name "*.txt" -o -name "*.pot" -o -name "*.css" -o -name "*.js" \) );
+    files_parameters=$(echo \( -name "*.php" -o -name "scripts.bash" -o -name "*.json" -o -name "*.txt" -o -name "*.pot" -o -name "*.css" -o -name "*.js" \) );
     output_folder_path="./output/";
 
     #create plugin dir
