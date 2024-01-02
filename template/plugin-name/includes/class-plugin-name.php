@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 /**
  * The file that defines the core plugin class
  *
@@ -173,17 +173,6 @@ class Plugin_Name {
 	 */
 	public function run() {
 		$this->loader->run();
-	}
-
-	/**
-	 * The name of the plugin used to uniquely identify it within the context of
-	 * WordPress and to define internationalization functionality.
-	 *
-	 * @since     1.0.0
-	 * @return    string    The name of the plugin.
-	 */
-	public function get_plugin_name() {
-		return defined( 'PLUGIN_NAME_TEXT_DOMAIN' ) ? PLUGIN_NAME_TEXT_DOMAIN : 'plugin-name';
 	}
 
 	/**

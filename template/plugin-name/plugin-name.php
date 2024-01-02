@@ -47,11 +47,6 @@ define( 'PLUGIN_NAME_VERSION', $version );
 define( 'PLUGIN_NAME_DEV_MOD', $is_local );
 
 /**
- * Plugin Name text domain for internationalization.
- */
-define( 'PLUGIN_NAME_TEXT_DOMAIN', 'plugin-name' );
-
-/**
  * Plugin Name Path for plugin includes.
  */
 define( 'PLUGIN_NAME_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
