@@ -8,7 +8,7 @@
 svn/
 
 # ZIP of a release build
-way-plan-add-on.zip
+plugin-name.zip
 
 # Node artifact files
 node_modules/

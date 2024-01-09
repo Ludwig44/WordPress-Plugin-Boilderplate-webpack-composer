@@ -1,11 +1,5 @@
 <?php
-
 /**
- *
- * @link              http://example.com/
- * @since             1.0.0
- * @package           Plugin_Name
- *
  * @wordpress-plugin
  * Plugin Name:       WordPress Plugin Boilerplate
  * Plugin URI:        http://example.com/plugin-name-uri/
@@ -20,9 +14,7 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
+if ( ! defined( 'WPINC' ) ) die;
 
 /**
  * Check if your are in local or production environment
