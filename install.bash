@@ -58,7 +58,9 @@ then
     mkdir -p ./output/$plugin_name_with_hyphen;
 
     #mv files from template to plugin dir
+    shopt -s dotglob
     cp -r ./template/plugin-name/* ./output/$plugin_name_with_hyphen/;
+    shopt -u dotglob
 
     #change http://example.com/plugin-name-uri/ to http://example.com/example-me/
     find ./output/$plugin_name_with_hyphen -type f $files_parameters -print0 | xargs -0 sed -i '' -e "s,http://example.com/plugin-name-uri/,$plugin_uri,g";
