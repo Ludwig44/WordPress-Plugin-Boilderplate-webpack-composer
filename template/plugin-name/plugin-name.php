@@ -24,7 +24,7 @@ $is_local = isset($_SERVER['REMOTE_ADDR']) && ($_SERVER['REMOTE_ADDR'] == '127.0
 /**
  * If you are in local environment, you can use the version number as a timestamp for better cache management in your browser
  */
-$version  = $is_local ? time() : '1.0.0';
+$version  = get_file_data( __FILE__, array( 'Version' => 'Version' ), false )['Version'];
 
 /**
  * Currently plugin version.
