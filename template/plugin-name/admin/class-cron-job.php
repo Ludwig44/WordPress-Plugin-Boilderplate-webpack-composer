@@ -28,7 +28,15 @@ class Plugin_Name_Cron_Job {
 	 * @return void
 	 */
 	public function __construct() {
+		add_action( 'init', [$this, 'init'] );		
+	}
 
+	/**
+	 * Init
+	 *
+	 * @return void
+	 */
+	public function init() {
 		add_filter('cron_schedules', [$this, 'crons_registrations'] );
 
 		$crons = self::plugin_name_to_replace_crons_list();
@@ -38,7 +46,6 @@ class Plugin_Name_Cron_Job {
 		}
 		
 		add_action('wp', [$this, 'plugin_name_to_replace_cron_events'] );
-		
 	}
 	
 	/**
