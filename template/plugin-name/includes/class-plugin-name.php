@@ -144,12 +144,8 @@ class Plugin_Name {
 	 * @access   private
 	 */
 	private function define_admin_hooks() {
-
 		$plugin_name_to_replace_settings = new Plugin_Name_Settings();
-		$this->loader->add_action( 'admin_menu', $plugin_name_to_replace_settings, 'add_settings_menu' );
-
 		$plugin_name_to_replace_cron_job = new Plugin_Name_Cron_Job();
-
 	}
 
 	/**
@@ -160,10 +156,7 @@ class Plugin_Name {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-
 		$plugin_name_to_replace_shortcodes = new Plugin_Name_Shortcodes();
-		$this->loader->add_action( 'init', $plugin_name_to_replace_shortcodes, 'add_shortcodes' );
-
 	}
 
 	/**

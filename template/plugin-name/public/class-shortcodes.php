@@ -9,7 +9,7 @@ class Plugin_Name_Shortcodes {
 	 * @return void
 	 */
 	public function __construct() {
-
+		add_action( 'init', array( $this, 'add_shortcodes' ) );
 	}
 	
 	/**

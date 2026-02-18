@@ -9,7 +9,7 @@ class Plugin_Name_Settings {
 	 * @return void
 	 */
 	public function __construct() {
-		
+		add_action( 'admin_menu', array( $this, 'add_settings_menu' ) );
 	}
 		
 	/**

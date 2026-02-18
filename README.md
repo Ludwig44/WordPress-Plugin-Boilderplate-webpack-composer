@@ -12,6 +12,76 @@ As well as a page for plugin settings, which in my experience is useful in 90% o
 
 This project is ideally aimed at those who are comfortable with the DevinVision boilderplate but who wish to save time in setting it up.
 
+## Configuration (Optional but Recommended)
+
+Before generating your first plugin, you can configure your author information in `setup.conf` to avoid entering it every time:
+
+```bash
+# AUTHOR PARAMETERS
+plugin_author_name="Your Name"
+plugin_author_uri="https://yourwebsite.com/"
+plugin_author_email="your@email.com"
+```
+
+You can also configure the output directory and other global parameters. If these values are set in `setup.conf`, they will be used automatically. If left empty, the script will prompt you for them during generation.
+
+### Available Parameters in `setup.conf`
+
+#### Global Parameters
+
+- **`open_dir_after_generate`** (default: `"1"`)
+  - Set to `"1"` to automatically open the output directory after plugin generation
+  - Set to `"0"` to skip opening the directory
+  
+- **`is_contributor_mode`** (default: `"1"`)
+  - Set to `"1"` to enable contributor mode (adds additional options in the menu)
+  - Set to `"0"` for normal mode
+
+#### Author Parameters
+
+These parameters will be used automatically if configured. If left empty or undefined, you'll be prompted to enter them during plugin generation.
+
+- **`plugin_author_name`** (default: empty)
+  - Your name or company name
+  - Example: `"Your Name"` or `"Your Company"`
+  
+- **`plugin_author_uri`** (default: empty)
+  - Your website URL
+  - Example: `"https://yourwebsite.com/"`
+  - Must include trailing slash
+  
+- **`plugin_author_email`** (default: empty)
+  - Your email address
+  - Example: `"your@email.com"`
+
+#### Output Parameters
+
+- **`custom_output`** (default: empty)
+  - Absolute path to your WordPress plugins directory
+  - Example: `"/Users/username/Sites/mysite/wp-content/plugins/"`
+  - If set and `use_custom_output` is enabled, generated plugins will be moved directly to this location
+  
+- **`use_custom_output`** (default: `"0"`)
+  - Set to `"1"` to automatically move generated plugins to the `custom_output` path
+  - Set to `"0"` to keep plugins in the local `output/` folder
+
+### Example `setup.conf` Configuration
+
+```bash
+# GLOBAL PARAMETERS
+open_dir_after_generate="1"
+is_contributor_mode="0"
+
+# AUTHOR PARAMETERS
+plugin_author_name="John Doe"
+plugin_author_uri="https://johndoe.dev/"
+plugin_author_email="john@johndoe.dev"
+
+# OUTPUTS PARAMETERS
+custom_output="/Users/john/Sites/mysite/wp-content/plugins/"
+use_custom_output="1"
+```
+
 ## Installation & generation of plugin
 
 ![Image](https://media1.giphy.com/media/k1iWAv6dAx037tRhTh/giphy.gif?cid=790b7611d5abca383e80a49957e882e84037be80f184a5dd&rid=giphy.gif&ct=g)
@@ -21,14 +91,16 @@ This project is ideally aimed at those who are comfortable with the DevinVision 
 git clone git@github.com:Ludwig44/WordPress-Plugin-Boilderplate-webpack-composer.git;
 cd WordPress-Plugin-Boilderplate-webpack-composer;
 ```
-2. To generate a new plugin it's very simple, just run the following command on the install.bash file at the root of the project:
+2. (Optional) Configure your author information in `setup.conf` to save time on future plugin generations.
+
+3. To generate a new plugin it's very simple, just run the following command on the install.bash file at the root of the project:
 ```
 bash install.bash
 ```
-3. Follow the instructions in your terminal.
-4. Go to the output folder and copy the generate folder to your plugin folder in your WordPress installation.
-5. Don't forget to activate your new plugin in your WordPress.
-6. Finish
+4. Follow the instructions in your terminal.
+5. Go to the output folder and copy the generate folder to your plugin folder in your WordPress installation.
+6. Don't forget to activate your new plugin in your WordPress.
+7. Finish
 
 ## Constantes
 

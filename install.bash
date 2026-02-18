@@ -41,10 +41,18 @@ then
 
     read -p "❓ Enter your WordPress plugin name with this format 'Plugin_Name' : " plugin_name;
     read -p "❓ Enter your plugin uri with this format 'http://example.com/plugin-name-uri/' : " plugin_uri;
-    read -p "❓ Enter your plugin author name with this format 'Your Name' : " plugin_author_name;
-    read -p "❓ Enter your plugin author uri with this format 'http://example.com/' : " plugin_author_uri;
-    read -p "❓ Enter your plugin author email with this format 'email@example.com' : " plugin_author_email;
     read -p "❓ Enter your plugin description with this format 'This is a short description of what the plugin does. It's displayed in the WordPress admin area.' : " plugin_description;
+    
+    # Use author parameters from setup.conf (ask only if empty or undefined)
+    if [ -z "$plugin_author_name" ]; then
+        read -p "❓ Enter your plugin author name with this format 'Your Name' : " plugin_author_name;
+    fi
+    if [ -z "$plugin_author_uri" ]; then
+        read -p "❓ Enter your plugin author uri with this format 'http://example.com/' : " plugin_author_uri;
+    fi
+    if [ -z "$plugin_author_email" ]; then
+        read -p "❓ Enter your plugin author email with this format 'email@example.com' : " plugin_author_email;
+    fi
 
     #create vars
     plugin_name_lowercase=$(echo $plugin_name | tr '[:upper:]' '[:lower:]');

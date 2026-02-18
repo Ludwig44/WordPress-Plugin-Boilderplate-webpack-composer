@@ -5,6 +5,10 @@
 current_dir=$(pwd);
 plugin_name="plugin-name";
 
+# Extract version from plugin file
+plugin_version=$(grep -m 1 "Version:" ${plugin_name}.php | sed 's/.*Version:[[:space:]]*//' | tr -d '[:space:]')
+plugin_name_versioned="${plugin_name}-v${plugin_version}";
+
 echo "----------------------------------------------------";
 echo "-----------------🛠️ DEV SCRIPTS 🛠️-----------------";
 echo "----------------------------------------------------";
@@ -19,10 +23,16 @@ read -p "Enter your choice: " choice;
 
 if [ $choice = "1" ]
 then 
-    rm -rf $plugin_name.zip;
-    exclude_files="--exclude=.* --exclude=.DS_Store --exclude=__MACOSX --exclude=scripts.bash --exclude=$plugin_name.zip --exclude=public/assets/src/* --exclude=*package-lock.json --exclude=*package.json --exclude=*README.md --exclude=*webpack.config.js --exclude=*node_modules/*";
-    echo "Exporting to ZIP";
-    zip -rq $plugin_name.zip ./* $exclude_files;
+    rm -rf $plugin_name-v*.zip;
+    rm -rf $plugin_name;
+    mkdir $plugin_name;
+    exclude_files="--exclude=.* --exclude=README.md --exclude=.DS_Store --exclude=__MACOSX --exclude=scripts.bash --exclude=*.zip --exclude=scripts-local/* --exclude=public/assets/src/* --exclude=*package-lock.json --exclude=*package.json --exclude=*README.md --exclude=*webpack.config.js --exclude=*node_modules/*";
+    rsync -avz $exclude_files ./ $plugin_name/;
+    rm -rf ${plugin_name}-v*.zip;
+    echo "Exporting to ZIP: $plugin_name_versioned.zip";
+    zip -rq $plugin_name.zip $plugin_name;
+    mv $plugin_name.zip $plugin_name_versioned.zip;
+    rm -rf $plugin_name;
     
      # Open the folder
     open "$current_dir";
