@@ -12,6 +12,9 @@ plugin_name_versioned="${plugin_name}-v${plugin_version}";
 echo "----------------------------------------------------";
 echo "-----------------🛠️ DEV SCRIPTS 🛠️-----------------";
 echo "----------------------------------------------------";
+echo "Plugin Name: $plugin_name";
+echo "Plugin Version: $plugin_version";
+echo "----------------------------------------------------";
 
 # a menu to select action
 echo "What do you want to do?";
