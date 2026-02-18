@@ -1,6 +1,3 @@
-# Ignore setup
-setup.conf
-
 # ignore all subfolder of output dir
 output/*/
 
