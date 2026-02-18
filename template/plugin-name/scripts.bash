@@ -41,5 +41,5 @@ fi
 if [ $choice = "2" ]
 then 
     echo "Watching";
-    # fswatch -o . | xargs -n1 -I{} sshpass -p 'YOURPASSWORD' rsync -avz --exclude '.gitignore' --exclude '.git' --exclude '.DS_Store' --exclude 'public/assets/package.json' --exclude 'public/assets/package-lock.json' --exclude 'public/assets/node_modules/*' --exclude 'public/src/*' --exclude 'scripts.bash' . USER@HOST:./PATH/wp-content/plugins/plugin-name/ --delete
+    # fswatch -o . | xargs -n1 -I{} sshpass -p 'YOURPASSWORD' rsync -avz --exclude '.gitignore' --exclude '.git' --exclude '.DS_Store' --exclude '*.zip' --exclude 'public/assets/package.json' --exclude 'public/assets/package-lock.json' --exclude 'public/assets/node_modules/*' --exclude 'public/src/*' --exclude 'scripts.bash' . USER@HOST:./PATH/wp-content/plugins/plugin-name/ --delete
 fi
